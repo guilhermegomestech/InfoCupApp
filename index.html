@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>InfoCupApp - FIFA WORLD CUP 2022</title>
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/styles.css" rel="stylesheet">
+  <link href="manisfest.json" rel="manifest">
+  <link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="icons/favicon.ico" type="image/x-icon">
+
+</head>
+
+<body>
+
+  <header class="container-fluid fixed-top">
+    <img src="img/logo.png" width="45px" style="opacity: 70%;">
+    <h4 class="h4-header">Cup 2022</h4>
+  </header>
+
+  <main class="container">
+  
+  
+    <div class="row" id="content">
+  
+      <div class="load-icon"></div>
+  
+    </div>
+  
+    <div class="row" id="load-area" style="display: none; margin-top: 20px;">
+      <div class="col-12">
+        <div class="d-grid gap-2">
+          <button class="btn btn-secondary" id="btLoadMore" onclick="javascript:loadMore();" type="button">Carregar mais</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="container-fluid fixed-bottom">
+    <button type="button" class="btn btn-info" hidden id="btInstall">Instalar</button>
+  </footer>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+
+    let swRegistro = null;
+
+    if ('serviceWorker' in navigator) {
+
+      window.addEventListener('load', () => {
+
+        navigator.serviceWorker.register("service-worker.js").then((reg) => {
+
+          console.log("Service Worker registrado com sucesso!");
+          swRegistro = reg;
+          initInstall();
+
+        });
+
+      });
+
+    }
+
+  </script>
+</body>
+
+</html>
